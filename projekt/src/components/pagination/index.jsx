@@ -6,18 +6,18 @@
 
     return(
         <div className="pages">
-            <button 
+            <span
             className="pages_button" 
             onClick={() => onPageChange(currentPage - 1)}
             disabled= {currentPage === 1} 
             >
                 Prev
                 
-                </button>
+                </span>
 
 
 {Array.from({ length: totalPages}, (_, i) => i + 1).map((page) => (
-    <button
+    <span
     key={page}
      className={`pages_button ${page === currentPage ? "pages_button--active" : ""}`}
     onClick={() => onPageChange(page)}
@@ -25,18 +25,18 @@
         {page}
 
 
-    </button>
+    </span>
 
 
 ))}
 
-<button className="pages_button" 
+<span className="pages_button" 
 onClick={() => onPageChange(currentPage + 1)}
 disabled={currentPage === totalPages}
 >
     Next
 
-</button>
+</span>
 </div>
     );
  }

@@ -3,8 +3,8 @@
 import {useState, useEffect} from "react";
 import Pagination from "@/components/pagination";
 import SearchForm from "@/components/search";
-
-
+import Link from "next/link";
+ 
 
  export default function ProductCard(){
   const[products, setProducts] = useState([]);
@@ -44,11 +44,11 @@ return(
   <div className="product">
   {currentItems.length > 0 ?(
     currentItems.map((product) => (
-      <div key={product.id} className= "product_card">
+      <Link href={`/listing/${product.id}`}key={product.id}  className= "product_card">
         <img className="product_img" src={product.asset.url} alt={product.title}/>
         <h2>{product.title}</h2>
         <p>{product.price}</p>
-   </div>
+   </Link>
     ))
   ) : (
 
@@ -61,7 +61,7 @@ No products match your search
 
 {filteredProducts.length > itemsPerPage && (
   <Pagination
-  totalItems={filteredProducts.length}
+  totalItemsPage={filteredProducts.length}
   itemsPerPage={itemsPerPage}
  currentPage={currentPage}
   onPageChange={setCurrentPage}

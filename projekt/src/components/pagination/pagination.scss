@@ -1,0 +1,24 @@
+.pages{
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.pages_control,
+.pages_number{
+
+padding: 0.4rem 0.8rem;
+cursor: pointer;
+border-radius: 4px;
+background-color: #eee;
+transition: background-color 0.2s ease;
+}
+.pages_control.disabled,
+.pages_number.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+.pages_number.active {
+    background-color: #0070f3;
+    color: #000;
+}
