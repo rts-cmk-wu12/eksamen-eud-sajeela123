@@ -1,4 +1,9 @@
 "use client"
+import "./pagination.scss";
+
+
+
+
  export default function Pagination({ totalItemsPage, itemsPerPage, currentPage, onPageChange}){
 
     const totalPages = Math.ceil(totalItemsPage / itemsPerPage);

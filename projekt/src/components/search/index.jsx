@@ -1,4 +1,7 @@
 "use client";
+
+
+
  export default function SearchForm({ search, setSearch }) {
     function handleChange(e) {
         setSearch(e.target.value);

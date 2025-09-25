@@ -1,0 +1,35 @@
+.similar{
+    padding: 2rem;
+    background-color: white;
+
+    h2{
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+        color: #333;
+        text-align: start;
+    }
+    .similar_products{
+        display: flex;
+       
+        gap:1.5rem;
+        justify-content: center;
+
+
+        a{
+            text-decoration: none;
+            transition: transform 0.2s ease;
+
+
+
+
+            .similar_image{
+                width: 180px;
+                height: 180px;
+                object-fit: cover;
+                border-radius: 8px;
+                border: 1px solid #e0e0e0;
+              
+            }
+        }
+    }
+}

@@ -14,11 +14,11 @@ export default function Header() {
 </div>
 
 <nav className={styles.nav}>
-<Link href="#" className={`${styles.link} ${styles.active}`}>Listings</Link>
+<Link href="/" className={`${styles.link} ${styles.active}`}>Listings</Link>
 <Link href="#" className={styles.link} >Community</Link>
-<Link href="#" className={styles.link} >Contact</Link>
+<Link href="/contact" className={styles.link} >Contact</Link>
 <Link href="#" className={styles.signin} >Sign in</Link>
-<Link href="#" className={styles.register} >Register</Link>
+<Link href="/register" className={styles.register} >Register</Link>
 
 </nav>
 

@@ -4,6 +4,9 @@ import {useState, useEffect} from "react";
 import Pagination from "@/components/pagination";
 import SearchForm from "@/components/search";
 import Link from "next/link";
+import "./page.scss";
+
+
  
 
  export default function ProductCard(){
@@ -60,12 +63,14 @@ No products match your search
 </div>
 
 {filteredProducts.length > itemsPerPage && (
+  <div className="pagination-container">
   <Pagination
   totalItemsPage={filteredProducts.length}
   itemsPerPage={itemsPerPage}
  currentPage={currentPage}
   onPageChange={setCurrentPage}
   />
+  </div>
 )}
 </div>
 );

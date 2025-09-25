@@ -1,72 +1,79 @@
 "use client"
 
-import {useState} from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
+
+export const metadata = {
+    title: "contact",
+    description: " contact",
+
+};
+
 
 export default function ContactForm() {
     const router = useRouter();
-    const[email, setEmail] = useState("");
-    const[status, setStatus] = useState(null);
+    const [email, setEmail] = useState("");
+    const [status, setStatus] = useState(null);
 
 
 
-    const handleSubmit = async(e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if(!email.trim()) {
+        if (!email.trim()) {
             setStatus("plase enter your email first");
             return;
         }
-       setStatus("send");
+        setStatus("send");
 
-       try{
-        const response = await fetch("http://localhost:4000/api/v1/newsletter",{
-            method:"POST",
-            headers: {"Content-Type": "application/json"},
-            body:JSON.stringify({email}),
+        try {
+            const response = await fetch("http://localhost:4000/api/v1/newsletter", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ email }),
 
-        });
+            });
 
-if(response.ok){
-    setStatus("Thanks for singin");
-    setEmail("")
+            if (response.ok) {
+                setStatus("Thanks for singin");
+                setEmail("")
 
-    setTimeout(() => {
-        router.push("/");
-    }, 1500);
-}
-else{
-    setStatus("Something went wrong. Try again");
+                setTimeout(() => {
+                    router.push("/");
+                }, 1500);
+            }
+            else {
+                setStatus("Something went wrong. Try again");
 
-}
+            }
 
- }catch(error){
-setStatus("Server problem.Try again")
+        } catch (error) {
+            setStatus("Server problem.Try again")
 
-}
+        }
     };
 
-    return(
+    return (
         <div className="contact-form">
-<h1>Contact</h1>
-<p>Sign up for our newsletter for latest updates</p>
+            <h1>Contact</h1>
+            <p>Sign up for our newsletter for latest updates</p>
 
-<form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
 
-<input type="email" placeholder="enter your email" value={email} onChange={(e) =>
-setEmail(e.target.value)}/>
+                <input type="email" placeholder="enter your email" value={email} onChange={(e) =>
+                    setEmail(e.target.value)} />
 
-<button type= "submit">Subscribe</button>
+                <button type="submit">Subscribe</button>
 
 
 
-</form>
+            </form>
 
-<p>{status}</p>
-      </div>
+            <p>{status}</p>
+        </div>
     )
 
 }
-    
+
 
 

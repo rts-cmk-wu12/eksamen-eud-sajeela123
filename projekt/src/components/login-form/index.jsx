@@ -5,6 +5,9 @@
 import loginAction from "../login-action";
 import { redirect } from "next/navigation";
 import { toast, ToastContainer } from "react-toastify";
+import "./login.scss";
+
+
  
 export default function LoginForm() {
     const [formState, formAction, pending] = useActionState(loginAction);
@@ -29,23 +32,24 @@ export default function LoginForm() {
 
  
     return (
-        <form action={formAction}>
-            <div>
+        <form action={formAction} className="login-form">
+           
                 <label>
                     <span>Email</span>
                     <input type="email" name="email" defaultValue={formState?.data?.email} />
-                    <span>{formState?.properties?.email?.errors}</span>
+                    <span className="error">{formState?.properties?.email?.errors}</span>
                 </label>
-            </div>
-            <div>
+            
+          
                 <label>
                     <span>Adgangskode</span>
                     <input type="password" name="password" defaultValue={formState?.data?.password} />
-                    <span>{formState?.properties?.password?.errors}</span>
+                    <span className="error">{formState?.properties?.password?.errors}</span>
                 </label>
-            </div>
-            <div>{formState?.errors}</div>
+            
+            <div className="form-errors">{formState?.errors}</div>
             <button type="submit">Log ind</button>
+           <p className="forget-password">Forgot password?</p> 
             <ToastContainer />
         </form>
     );

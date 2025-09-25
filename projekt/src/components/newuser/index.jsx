@@ -1,15 +1,11 @@
 "use client";
 
 import { useState } from "react";
-
-
 import { createUser} from "./newuser-action"
+import "./newuser.scss";
 
-export const metadata = {
-    title: "Create user",
-    description: "Creat a new user",
 
-};
+
 
 
 export default function NewUserPage() {
@@ -36,7 +32,7 @@ export default function NewUserPage() {
         
     }
     return(
-         <div>
+         <div className="new-user">
             <form action={handleSubmit}>
                 <h1>Create user</h1>
                 {error && <p style={{ color: "black"}}>{error}</p>}
