@@ -17,7 +17,7 @@ export default function Header() {
 <Link href="/" className={`${styles.link} ${styles.active}`}>Listings</Link>
 <Link href="#" className={styles.link} >Community</Link>
 <Link href="/contact" className={styles.link} >Contact</Link>
-<Link href="#" className={styles.signin} >Sign in</Link>
+<Link href="/login" className={styles.signin} >Sign in</Link>
 <Link href="/register" className={styles.register} >Register</Link>
 
 </nav>

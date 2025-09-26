@@ -10,9 +10,9 @@ export default async function loginAction(prevState, formData) {
 	const { email, password } = Object.fromEntries(formData);
 
 	const schema = z.object({
-	    email: z.string().min(1, { message: "Du skal udfylde et email" }),
+	    email: z.string().min(1, { message: "must write the email" }),
 		
-		password: z.string().min(1, { message: "Du skal udfylde en adgangskode" })
+		password: z.string().min(1, { message: "must write the password" })
 	});
 
 	const validated = schema.safeParse({
@@ -52,14 +52,21 @@ try{
 	const json = await response.json();
 
 	const cookieStore = await cookies();
+	
 
 	cookieStore.set({
-		name: "ld_token",
+		name: "Id_token",
 		value: json.token,
-		path: "/",
+		path:"/",
 		secure: true
 	});
 
+    cookieStore.set({
+        name: "Id_user",
+        value: json.userId,
+        path: "/",            
+        secure: true
+    });
 
 
 	return {
@@ -75,7 +82,7 @@ try{
 return{
 	sucess: false,
 	error:["intern server error"],
-	data:{email,passord}
+	data:{email,password}
 };
 }
 }

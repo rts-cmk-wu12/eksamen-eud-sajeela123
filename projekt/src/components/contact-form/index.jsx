@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import "./contact.scss";
 
 export const metadata = {
     title: "contact",
