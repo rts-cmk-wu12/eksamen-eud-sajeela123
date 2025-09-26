@@ -27,7 +27,7 @@ export default function LoginForm() {
 				position: "top-right"
 			});
 			setTimeout(function () {
-				redirect("/");
+				redirect("/profile");
 			}, 2000);
 		}
 	}, [formState, pending]);
