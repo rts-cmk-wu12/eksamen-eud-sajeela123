@@ -9,7 +9,9 @@ import z  from "zod";
 export default async function loginAction(prevState, formData) {
 	const { email, password } = Object.fromEntries(formData);
 
-	const schema = z.object({
+
+
+const schema = z.object({
 	    email: z.string().min(1, { message: "must write the email" }),
 		
 		password: z.string().min(1, { message: "must write the password" })
@@ -28,6 +30,8 @@ export default async function loginAction(prevState, formData) {
 			password
 		}
 	};
+	
+
 try{
     const response = await fetch("http://localhost:4000/auth/token", {
 		method: "POST",
@@ -40,6 +44,7 @@ try{
 		})
 	});
 
+
 	if (!response.ok) return {
 		success: false,
 		errors: ["Forkert brugernavn eller adganskode"],
@@ -48,6 +53,7 @@ try{
 			password
 		}
 	};
+
 
 	const json = await response.json();
 
@@ -86,3 +92,6 @@ return{
 };
 }
 }
+
+/* i only write the console in the code, and remove it, 
+ noting do anything with code. you can match the code with my last push*/
